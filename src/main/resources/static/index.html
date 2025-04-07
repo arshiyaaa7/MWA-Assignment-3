@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Spring Boot + Vanilla JS Example</title>
+    <title>Servlet Messenger</title>
     <style>
-        /* Background Gradient for a Soft, Modern Look */
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #f6d365, #fda085);
@@ -13,7 +12,6 @@
             height: 100vh;
             margin: 0;
         }
-        /* Centered Card with Rounded Corners and Subtle Shadow */
         .container {
             background-color: #ffffffee;
             border-radius: 12px;
@@ -23,19 +21,16 @@
             max-width: 400px;
             width: 100%;
         }
-        /* Heading with Bold and Fresh Color */
         h2 {
             margin: 0 0 15px;
             color: #333;
             font-size: 1.8em;
         }
-        /* Message Text Styling */
         p {
             margin: 10px 0;
             color: #555;
             font-size: 1.2em;
         }
-        /* Button with Hover and Smooth Transition */
         button {
             padding: 10px 20px;
             border: none;
@@ -60,7 +55,7 @@
 
 <script>
     function fetchMessage() {
-        fetch('http://localhost:8080/api/message')
+        fetch('/api/message')
             .then(response => {
                 if (!response.ok) throw new Error('Network response was not ok');
                 return response.text();
