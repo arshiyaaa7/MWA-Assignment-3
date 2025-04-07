@@ -1,0 +1,19 @@
+# IntelliJ and Spring Boot specific ignores
+/.idea/
+/*.iml
+/target/
+/out/
+/mvnw
+/mvnw.cmd
+/.mvn/
+*.log
+*.tmp
+*.class
+*.jar
+*.war
+*.cmd
+*.bat
+.DS_Store
+/.vscode/
+.env
+node_modules/

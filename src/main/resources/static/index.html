@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Spring Boot + Vanilla JS Example</title>
+    <style>
+        /* Background Gradient for a Soft, Modern Look */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        /* Centered Card with Rounded Corners and Subtle Shadow */
+        .container {
+            background-color: #ffffffee;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 30px 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        /* Heading with Bold and Fresh Color */
+        h2 {
+            margin: 0 0 15px;
+            color: #333;
+            font-size: 1.8em;
+        }
+        /* Message Text Styling */
+        p {
+            margin: 10px 0;
+            color: #555;
+            font-size: 1.2em;
+        }
+        /* Button with Hover and Smooth Transition */
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ff7e5f;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff6a45;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Welcome to Message Controller!</h2>
+    <p id="message">Click the button to get a message.</p>
+    <button onclick="fetchMessage()">Get Server Message</button>
+</div>
+
+<script>
+    function fetchMessage() {
+        fetch('http://localhost:8080/api/message')
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('message').innerText = data;
+            })
+            .catch(error => {
+                document.getElementById('message').innerText = "Error fetching data. Must be your fault.";
+            });
+    }
+</script>
+</body>
+</html>
